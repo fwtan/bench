@@ -1,0 +1,112 @@
+CPU Time total:
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                        model_inference         1.85%      12.324ms        87.50%     582.571ms     582.571ms       0.000us         0.00%     438.000us     438.000us           0 b           0 b             1  
+                                        cudaGraphLaunch        83.38%     555.114ms        83.38%     555.114ms       5.551ms      10.000us         0.00%      10.000us       0.100us           0 b           0 b           100  
+                                  cudaDeviceSynchronize        12.50%      83.192ms        12.50%      83.192ms      83.192ms       0.000us         0.00%       0.000us       0.000us           0 b           0 b             1  
+                                            aten::fill_         0.24%       1.629ms         1.26%       8.382ms      41.910us     200.000us         0.03%     222.000us       1.110us           0 b           0 b           200  
+                                       cudaLaunchKernel         1.01%       6.753ms         1.01%       6.753ms      33.765us      22.000us         0.00%      22.000us       0.110us           0 b           0 b           200  
+                                            aten::copy_         0.24%       1.578ms         1.00%       6.670ms      66.700us     163.000us         0.03%     175.000us       1.750us           0 b           0 b           100  
+                                        cudaMemcpyAsync         0.76%       5.092ms         0.76%       5.092ms      50.920us      12.000us         0.00%      12.000us       0.120us           0 b           0 b           100  
+                                  cudaStreamIsCapturing         0.01%      81.000us         0.01%      81.000us       0.405us      21.000us         0.00%      21.000us       0.105us           0 b           0 b           200  
+                         Memcpy DtoD (Device -> Device)         0.00%       0.000us         0.00%       0.000us       0.000us     163.000us         0.03%     163.000us       1.630us           0 b           0 b           100  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us     200.000us         0.03%     200.000us       1.000us           0 b           0 b           200  
+void at::native::(anonymous namespace)::indexSelectS...         0.00%       0.000us         0.00%       0.000us       0.000us     200.000us         0.03%     200.000us       2.000us           0 b           0 b           100  
+void (anonymous namespace)::elementwise_kernel_with_...         0.00%       0.000us         0.00%       0.000us       0.000us     100.000us         0.02%     100.000us       1.000us           0 b           0 b           100  
+void at::native::(anonymous namespace)::vectorized_l...         0.00%       0.000us         0.00%       0.000us       0.000us      32.905ms         5.53%      32.905ms       5.062us           0 b           0 b          6500  
+void matmul_kbit_32<1, 2, false>(__half const*, unsi...         0.00%       0.000us         0.00%       0.000us       0.000us     174.365ms        29.28%     174.365ms       7.784us           0 b           0 b         22400  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      22.400ms         3.76%      22.400ms       1.000us           0 b           0 b         22400  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      11.295ms         1.90%      11.295ms       1.765us           0 b           0 b          6400  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us      25.600ms         4.30%      25.600ms       2.000us           0 b           0 b         12800  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us       6.826ms         1.15%       6.826ms       1.067us           0 b           0 b          6400  
+void at::native::(anonymous namespace)::CatArrayBatc...         0.00%       0.000us         0.00%       0.000us       0.000us      26.002ms         4.37%      26.002ms       2.031us           0 b           0 b         12800  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      12.800ms         2.15%      12.800ms       1.000us           0 b           0 b         12800  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 665.763ms
+Self CUDA time total: 595.421ms
+
+CUDA Time total:
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+void matmul_kbit_32<1, 2, false>(__half const*, unsi...         0.00%       0.000us         0.00%       0.000us       0.000us     174.365ms        29.28%     174.365ms       7.784us           0 b           0 b         22400  
+void at::native::(anonymous namespace)::CatArrayBatc...         0.00%       0.000us         0.00%       0.000us       0.000us     129.916ms        21.82%     129.916ms      20.299us           0 b           0 b          6400  
+void pytorch_flash::flash_fwd_splitkv_kernel<pytorch...         0.00%       0.000us         0.00%       0.000us       0.000us      85.874ms        14.42%      85.874ms      26.836us           0 b           0 b          3200  
+void cutlass::Kernel<cutlass_80_tensorop_f16_s16816g...         0.00%       0.000us         0.00%       0.000us       0.000us      50.075ms         8.41%      50.075ms     500.750us           0 b           0 b           100  
+void at::native::(anonymous namespace)::vectorized_l...         0.00%       0.000us         0.00%       0.000us       0.000us      32.905ms         5.53%      32.905ms       5.062us           0 b           0 b          6500  
+void at::native::(anonymous namespace)::CatArrayBatc...         0.00%       0.000us         0.00%       0.000us       0.000us      26.002ms         4.37%      26.002ms       2.031us           0 b           0 b         12800  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us      25.600ms         4.30%      25.600ms       2.000us           0 b           0 b         12800  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      22.400ms         3.76%      22.400ms       1.000us           0 b           0 b         22400  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      12.800ms         2.15%      12.800ms       1.000us           0 b           0 b         12800  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      11.295ms         1.90%      11.295ms       1.765us           0 b           0 b          6400  
+void pytorch_flash::flash_fwd_splitkv_combine_kernel...         0.00%       0.000us         0.00%       0.000us       0.000us       9.600ms         1.61%       9.600ms       3.000us           0 b           0 b          3200  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us       6.826ms         1.15%       6.826ms       1.067us           0 b           0 b          6400  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       3.200ms         0.54%       3.200ms       1.000us           0 b           0 b          3200  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       3.200ms         0.54%       3.200ms       1.000us           0 b           0 b          3200  
+void splitKreduce_kernel<32, 16, int, __half, __half...         0.00%       0.000us         0.00%       0.000us       0.000us     700.000us         0.12%     700.000us       7.000us           0 b           0 b           100  
+                                        model_inference         1.85%      12.324ms        87.50%     582.571ms     582.571ms       0.000us         0.00%     438.000us     438.000us           0 b           0 b             1  
+                                            aten::fill_         0.24%       1.629ms         1.26%       8.382ms      41.910us     200.000us         0.03%     222.000us       1.110us           0 b           0 b           200  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us     200.000us         0.03%     200.000us       1.000us           0 b           0 b           200  
+void at::native::(anonymous namespace)::indexSelectS...         0.00%       0.000us         0.00%       0.000us       0.000us     200.000us         0.03%     200.000us       2.000us           0 b           0 b           100  
+                                            aten::copy_         0.24%       1.578ms         1.00%       6.670ms      66.700us     163.000us         0.03%     175.000us       1.750us           0 b           0 b           100  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 665.763ms
+Self CUDA time total: 595.421ms
+
+CPU Memory:
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                        model_inference         1.85%      12.324ms        87.50%     582.571ms     582.571ms       0.000us         0.00%     438.000us     438.000us           0 b           0 b             1  
+                                            aten::copy_         0.24%       1.578ms         1.00%       6.670ms      66.700us     163.000us         0.03%     175.000us       1.750us           0 b           0 b           100  
+                                        cudaMemcpyAsync         0.76%       5.092ms         0.76%       5.092ms      50.920us      12.000us         0.00%      12.000us       0.120us           0 b           0 b           100  
+                         Memcpy DtoD (Device -> Device)         0.00%       0.000us         0.00%       0.000us       0.000us     163.000us         0.03%     163.000us       1.630us           0 b           0 b           100  
+                                  cudaStreamIsCapturing         0.01%      81.000us         0.01%      81.000us       0.405us      21.000us         0.00%      21.000us       0.105us           0 b           0 b           200  
+                                            aten::fill_         0.24%       1.629ms         1.26%       8.382ms      41.910us     200.000us         0.03%     222.000us       1.110us           0 b           0 b           200  
+                                       cudaLaunchKernel         1.01%       6.753ms         1.01%       6.753ms      33.765us      22.000us         0.00%      22.000us       0.110us           0 b           0 b           200  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us     200.000us         0.03%     200.000us       1.000us           0 b           0 b           200  
+                                        cudaGraphLaunch        83.38%     555.114ms        83.38%     555.114ms       5.551ms      10.000us         0.00%      10.000us       0.100us           0 b           0 b           100  
+void at::native::(anonymous namespace)::indexSelectS...         0.00%       0.000us         0.00%       0.000us       0.000us     200.000us         0.03%     200.000us       2.000us           0 b           0 b           100  
+void (anonymous namespace)::elementwise_kernel_with_...         0.00%       0.000us         0.00%       0.000us       0.000us     100.000us         0.02%     100.000us       1.000us           0 b           0 b           100  
+void at::native::(anonymous namespace)::vectorized_l...         0.00%       0.000us         0.00%       0.000us       0.000us      32.905ms         5.53%      32.905ms       5.062us           0 b           0 b          6500  
+void matmul_kbit_32<1, 2, false>(__half const*, unsi...         0.00%       0.000us         0.00%       0.000us       0.000us     174.365ms        29.28%     174.365ms       7.784us           0 b           0 b         22400  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      22.400ms         3.76%      22.400ms       1.000us           0 b           0 b         22400  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      11.295ms         1.90%      11.295ms       1.765us           0 b           0 b          6400  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us      25.600ms         4.30%      25.600ms       2.000us           0 b           0 b         12800  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us       6.826ms         1.15%       6.826ms       1.067us           0 b           0 b          6400  
+void at::native::(anonymous namespace)::CatArrayBatc...         0.00%       0.000us         0.00%       0.000us       0.000us      26.002ms         4.37%      26.002ms       2.031us           0 b           0 b         12800  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      12.800ms         2.15%      12.800ms       1.000us           0 b           0 b         12800  
+void at::native::(anonymous namespace)::CatArrayBatc...         0.00%       0.000us         0.00%       0.000us       0.000us     129.916ms        21.82%     129.916ms      20.299us           0 b           0 b          6400  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 665.763ms
+Self CUDA time total: 595.421ms
+
+CUDA Memory:
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                        model_inference         1.85%      12.324ms        87.50%     582.571ms     582.571ms       0.000us         0.00%     438.000us     438.000us           0 b           0 b             1  
+                                            aten::copy_         0.24%       1.578ms         1.00%       6.670ms      66.700us     163.000us         0.03%     175.000us       1.750us           0 b           0 b           100  
+                                        cudaMemcpyAsync         0.76%       5.092ms         0.76%       5.092ms      50.920us      12.000us         0.00%      12.000us       0.120us           0 b           0 b           100  
+                         Memcpy DtoD (Device -> Device)         0.00%       0.000us         0.00%       0.000us       0.000us     163.000us         0.03%     163.000us       1.630us           0 b           0 b           100  
+                                  cudaStreamIsCapturing         0.01%      81.000us         0.01%      81.000us       0.405us      21.000us         0.00%      21.000us       0.105us           0 b           0 b           200  
+                                            aten::fill_         0.24%       1.629ms         1.26%       8.382ms      41.910us     200.000us         0.03%     222.000us       1.110us           0 b           0 b           200  
+                                       cudaLaunchKernel         1.01%       6.753ms         1.01%       6.753ms      33.765us      22.000us         0.00%      22.000us       0.110us           0 b           0 b           200  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us     200.000us         0.03%     200.000us       1.000us           0 b           0 b           200  
+                                        cudaGraphLaunch        83.38%     555.114ms        83.38%     555.114ms       5.551ms      10.000us         0.00%      10.000us       0.100us           0 b           0 b           100  
+void at::native::(anonymous namespace)::indexSelectS...         0.00%       0.000us         0.00%       0.000us       0.000us     200.000us         0.03%     200.000us       2.000us           0 b           0 b           100  
+void (anonymous namespace)::elementwise_kernel_with_...         0.00%       0.000us         0.00%       0.000us       0.000us     100.000us         0.02%     100.000us       1.000us           0 b           0 b           100  
+void at::native::(anonymous namespace)::vectorized_l...         0.00%       0.000us         0.00%       0.000us       0.000us      32.905ms         5.53%      32.905ms       5.062us           0 b           0 b          6500  
+void matmul_kbit_32<1, 2, false>(__half const*, unsi...         0.00%       0.000us         0.00%       0.000us       0.000us     174.365ms        29.28%     174.365ms       7.784us           0 b           0 b         22400  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      22.400ms         3.76%      22.400ms       1.000us           0 b           0 b         22400  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      11.295ms         1.90%      11.295ms       1.765us           0 b           0 b          6400  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us      25.600ms         4.30%      25.600ms       2.000us           0 b           0 b         12800  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us       6.826ms         1.15%       6.826ms       1.067us           0 b           0 b          6400  
+void at::native::(anonymous namespace)::CatArrayBatc...         0.00%       0.000us         0.00%       0.000us       0.000us      26.002ms         4.37%      26.002ms       2.031us           0 b           0 b         12800  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      12.800ms         2.15%      12.800ms       1.000us           0 b           0 b         12800  
+void at::native::(anonymous namespace)::CatArrayBatc...         0.00%       0.000us         0.00%       0.000us       0.000us     129.916ms        21.82%     129.916ms      20.299us           0 b           0 b          6400  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 665.763ms
+Self CUDA time total: 595.421ms
+
